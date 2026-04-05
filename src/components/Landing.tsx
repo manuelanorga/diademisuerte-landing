@@ -419,8 +419,8 @@ export default function Landing() {
               {plan.save?(<div style={{marginBottom:20}}><span style={{fontSize:13,color:"rgba(255,255,255,0.4)"}}>Solo S/{plan.pricePerMonth}/mes · </span><span style={{fontSize:13,color:"var(--lime)",fontWeight:700}}>{plan.save}</span></div>):(<div style={{fontSize:13,color:"rgba(255,255,255,0.35)",marginBottom:20}}>S/{plan.pricePerMonth}/mes</div>)}
               <div style={{display:"inline-block",background:plan.id!=="monthly"?"rgba(163,230,53,0.15)":"rgba(255,255,255,0.06)",border:"1px solid",borderColor:plan.id!=="monthly"?"rgba(163,230,53,0.25)":"rgba(255,255,255,0.08)",borderRadius:100,padding:"8px 20px",marginBottom:24,fontSize:13,fontWeight:700,color:plan.id!=="monthly"?"var(--lime)":"rgba(255,255,255,0.5)"}}>{plan.id==="monthly"?"🎯":"🔥"} {plan.highlight}</div>
               <div style={{textAlign:"left",marginBottom:24}}>{plan.benefits.map((b,j)=>(<div key={j} style={{display:"flex",alignItems:"flex-start",gap:10,marginBottom:10}}><span style={{color:"var(--lime)",fontSize:14,marginTop:2,flexShrink:0}}>✓</span><span style={{fontSize:14,color:"rgba(255,255,255,0.55)",lineHeight:1.5}}>{b}</span></div>))}</div>
-              {/* TODO: onClick → navigate to /registro?plan={plan.id} for registration + Niubiz checkout */}
-              <button className="cta-lime" style={{width:"100%",padding:"16px 0"}}>{plan.badge==="MÁS POPULAR"?"¡EMPEZAR AHORA!":"ELEGIR PLAN"}</button>
+              {/* onClick → navigate to registration */}
+              <button className="cta-lime" style={{width:"100%",padding:"16px 0"}} onClick={()=>window.location.href=`/registro?plan=${plan.id}`}>{plan.badge==="MÁS POPULAR"?"¡EMPEZAR AHORA!":"ELEGIR PLAN"}</button>
             </div></FadeIn>))}
           </div>
         </div>
