@@ -32,11 +32,12 @@ export async function middleware(request: NextRequest) {
   // Protected routes: /registro/datos and /registro/pagar require auth
   const isProtected =
     request.nextUrl.pathname.startsWith("/registro/datos") ||
-    request.nextUrl.pathname.startsWith("/registro/pagar");
+    request.nextUrl.pathname.startsWith("/registro/pagar") ||
+    request.nextUrl.pathname.startsWith("/mi-cuenta");
 
   if (isProtected && !user) {
     const url = request.nextUrl.clone();
-    url.pathname = "/registro";
+    url.pathname = "/login";
     return NextResponse.redirect(url);
   }
 
@@ -44,5 +45,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/registro/datos/:path*", "/registro/pagar/:path*"],
+  matcher: ["/registro/datos/:path*", "/registro/pagar/:path*", "/mi-cuenta/:path*"],
 };

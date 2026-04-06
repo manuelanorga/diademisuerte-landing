@@ -289,7 +289,7 @@ export default function Landing() {
           </div>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
-          <button style={{background:"var(--lime)",border:"none",borderRadius:100,padding:"10px 20px",fontSize:13,fontWeight:800,color:"#000",cursor:"pointer",transition:"all 0.25s",fontFamily:"var(--body)",flexShrink:0}}
+          <button onClick={()=>window.location.href="/login"} style={{background:"var(--lime)",border:"none",borderRadius:100,padding:"10px 20px",fontSize:13,fontWeight:800,color:"#000",cursor:"pointer",transition:"all 0.25s",fontFamily:"var(--body)",flexShrink:0}}
             onMouseEnter={e=>e.currentTarget.style.background="var(--lime-dark)"}
             onMouseLeave={e=>e.currentTarget.style.background="var(--lime)"}
           >Iniciar sesión</button>
